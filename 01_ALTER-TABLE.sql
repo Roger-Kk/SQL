@@ -1,0 +1,33 @@
+INSERT INTO [TABELA DE PRODUTOS]
+VALUES (
+'1078680',
+'Frescor do Verão - 470 ml- Manga',
+'Garrafa',
+'470 ml',
+'Manga',
+6.99
+);
+
+SELECT * FROM [TABELA DE PRODUTOS];
+
+DELETE FROM [TABELA DE PRODUTOS]
+WHERE [CODIGO DO PRODUTO] = '1078680';
+
+-- Alterando a estrutura da tabela e adicionando primary key
+
+ALTER TABLE [TABELA DE PRODUTOS] ADD CONSTRAINT PK_TABELA_DE_PRODUTOS
+PRIMARY KEY CLUSTERED ([CODIGO DO PRODUTO]);
+
+-- Deu mensagem de erro: 
+-- Não foi possível criar a restrição ou o índice. Consulte os erros anteriores.
+-- Não é possível definir a restrição PRIMARY KEY em coluna anulável na tabela 'TABELA DE PRODUTOS'.
+
+-- Alterando o tipo de campo antes de setar a primary key:
+ALTER TABLE [TABELA DE PRODUTOS] ALTER COLUMN [CODIGO DO PRODUTO] VARCHAR(20) NOT NULL;
+
+SELECT * FROM [TABELA DE VENDEDORES];
+
+ALTER TABLE [TABELA DE VENDEDORES] ALTER COLUMN [MATRICULA] VARCHAR(05) NOT NULL;
+
+ALTER TABLE [TABELA DE VENDEDORES] ADD CONSTRAINT PK_TABELA_DE_VENDEDORES 
+PRIMARY KEY CLUSTERED ([MATRICULA]);
