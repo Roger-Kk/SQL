@@ -1,0 +1,56 @@
+/*Exemplos Consultas: */
+
+SELECT cpf, nome, endereco1, endereco2, bairro, cidade, cep, data_nascimento, idade, sexo, limite_credito, volume_compra, primeira_compra from tbcliente;
+
+SELECT CPF, NOME FROM TBCLIENTE LIMIT 5;
+
+SELECT CPF AS CPF_CLIENTE, NOME AS NOME_CLIENTE FROM TBCLIENTE;
+
+/*Selecionando dados de outra tabela em outro schema*/
+USE SUCOS_VENDAS;
+SELECT NOME, MATRICULA FROM TABELA_DE_VENDEDORES;
+
+
+/*Filtrando dados*/
+USE SUCOS;
+SELECT * FROM TBPRODUTO WHERE PRODUTO = '544931';
+
+SELECT * FROM tbcliente WHERE CIDADE = 'Rio de Janeiro'; 
+
+/*Filtrando com Maior, menor ou igual*/
+SELECT * FROM TBCLIENTE	WHERE IDADE > 22; 
+
+SELECT * FROM TBCLIENTE WHERE IDADE < 22; 
+
+SELECT * FROM tbcliente WHERE IDADE <= 22; 
+
+SELECT * FROM TBCLIENTE WHERE IDADE <> 22; 
+
+/*Também pode ser aplicado para strings*/
+SELECT * FROM TBCLIENTE WHERE NOME >= 'Fernando'; 
+
+SELECT * FROM TBPRODUTO WHERE PRECO_LISTA BETWEEN 16.0 AND 16.5;
+
+USE SUCOS_VENDAS; 
+SELECT * FROM TABELA_DE_VENDEDORES WHERE PERCENTUAL_COMISSAO > 0.10;
+
+USE SUCOS; 
+SELECT * FROM tbcliente WHERE DATA_NASCIMENTO > '1995-01-01'; 
+
+SELECT * FROM tbcliente WHERE year(DATA_NASCIMENTO) = '1995';
+
+SELECT * FROM TBCLIENTE	WHERE month(DATA_NASCIMENTO) = '11';
+
+/*Filtros compostos*/
+SELECT * FROM tbproduto WHERE PRECO_LISTA between 16.007 AND 16.009;
+
+SELECT * FROM tbproduto WHERE PRECO_LISTA >= 16.005 AND PRECO_LISTA <=17.005;
+
+SELECT * FROM TBCLIENTE	WHERE IDADE >= 18 AND IDADE <= 22 AND SEXO = 'M';
+
+SELECT * FROM TBCLIENTE WHERE CIDADE = 'Rio de Janeiro' OR CIDADE = 'SÃO PAULO';
+
+SELECT * FROM TBCLIENTE WHERE (IDADE >= 18 AND IDADE <= 22 AND SEXO = 'M') OR 
+(CIDADE = 'Rio de Janeiro');
+
+
