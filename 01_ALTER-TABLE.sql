@@ -1,7 +1,7 @@
 INSERT INTO [TABELA DE PRODUTOS]
 VALUES (
 '1078680',
-'Frescor do Ver„o - 470 ml- Manga',
+'Frescor do Ver√£o - 470 ml- Manga',
 'Garrafa',
 '470 ml',
 'Manga',
@@ -19,8 +19,8 @@ ALTER TABLE [TABELA DE PRODUTOS] ADD CONSTRAINT PK_TABELA_DE_PRODUTOS
 PRIMARY KEY CLUSTERED ([CODIGO DO PRODUTO]);
 
 -- Deu mensagem de erro: 
--- N„o foi possÌvel criar a restriÁ„o ou o Ìndice. Consulte os erros anteriores.
--- N„o È possÌvel definir a restriÁ„o PRIMARY KEY em coluna anul·vel na tabela 'TABELA DE PRODUTOS'.
+-- N√£o foi poss√≠vel criar a restri√ß√£o ou o √≠ndice. Consulte os erros anteriores.
+-- N√£o √© poss√≠vel definir a restri√ß√£o PRIMARY KEY em coluna anul√°vel na tabela 'TABELA DE PRODUTOS'.
 
 -- Alterando o tipo de campo antes de setar a primary key:
 ALTER TABLE [TABELA DE PRODUTOS] ALTER COLUMN [CODIGO DO PRODUTO] VARCHAR(20) NOT NULL;
@@ -31,3 +31,5 @@ ALTER TABLE [TABELA DE VENDEDORES] ALTER COLUMN [MATRICULA] VARCHAR(05) NOT NULL
 
 ALTER TABLE [TABELA DE VENDEDORES] ADD CONSTRAINT PK_TABELA_DE_VENDEDORES 
 PRIMARY KEY CLUSTERED ([MATRICULA]);
+
+ALTER TABLE VENDEDROES RENAME COLUMN DATA_ADIMISSAO TO DATA_ADMISSAO;
