@@ -21,7 +21,7 @@ SET [PERCENTUAL COMISSAO]  = 0.11
 WHERE [MATRICULA] = '00235'
 
 UPDATE [TABELA DE VENDEDORES]
-SET [NOME] = 'Cl�udia Morais Souza'
+SET [NOME] = 'Cláudia Morais Souza'
 WHERE [MATRICULA] = '00236'
 
 UPDATE [TABELA DE VENDEDORES] 
@@ -29,3 +29,22 @@ SET [PERCENTUAL COMISSAO] = 0.08
 WHERE [MATRICULA] = '00237'
 
 SELECT * FROM [TABELA DE VENDEDORES];
+
+
+/*---------------------------------------*/
+/*----Escrita mais simples do Update-----*/
+/*---------------------------------------*/
+
+UPDATE NOME_TABELA SET NOME_CAMPO = 'VALOR' WHERE CAMPO = 'VALOR';
+
+/*Update simples*/
+UPDATE PRODUTOS SET PRECO_LISTA = 5 WHERE CODIGO = '000001';
+
+/*Update de vários campos*/
+UPDATE PRODUTOS SET EMBALAGEM = 'Pet', TAMANHO = '1L', 
+  PRECO_LISTA = 9 WHERE CODIGO = '000002';
+
+/*Aumentar em 10% um valor dos produtos sabor maracujá*/
+UPDATE PRODUTOS SET PRECO_LISTA = PRECO_LISTA * 1.10 WHERE SABOR = 'Maracujá'; 
+
+
