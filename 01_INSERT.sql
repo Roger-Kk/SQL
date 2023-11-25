@@ -8,10 +8,10 @@ INSERT INTO [TABELA DE PRODUTOS](
 )
 VALUES (
 '1040107',
-'Light - 350 ml - Mel�ncia',
+'Light - 350 ml - Melância',
 'Lata',
 '350 ml',
-'Mel�ncia',
+'Melância',
 4.56
 );
 
@@ -24,7 +24,7 @@ INSERT INTO [TABELA DE VENDEDORES](
 )
 VALUES(
 '00235',
-'M�rcio Almeida Silva',
+'Márcio Almeida Silva',
 0.08
 );
 
@@ -69,10 +69,10 @@ SELECT * FROM [TABELA DE PRODUTOS];
 INSERT INTO [TABELA DE PRODUTOS]
 VALUES (
 '1004327',
-'Videira do Campo - 1,5 L- Mel�ncia',
+'Videira do Campo - 1,5 L- Melância',
 'Pet',
 '1,5 L',
-'Mel�ncia',
+'Melância',
 19.51
 );
 
@@ -81,16 +81,16 @@ SELECT * FROM [TABELA DE PRODUTOS];
 INSERT INTO [TABELA DE PRODUTOS]
 VALUES (
 '1008126',
-'Linha Citros - 1 L- Lim�o',
+'Linha Citros - 1 L- Limão',
 'Pet',
 '1 L',
-'Lim�o',
+'Limão',
 7),
 ('544931', 
-'Frescor do Ver�o - 350ml - Lim�o', 
+'Frescor do Verão - 350ml - Limão', 
 'Lata',
 '350ml', 
-'Lim�o',
+'Limão',
 2.46
 );
 
@@ -100,7 +100,7 @@ SELECT * FROM [TABELA DE PRODUTOS];
 INSERT INTO [TABELA DE VENDEDORES]
 VALUES(
 '00236',
-'Cl�udia Morais',
+'Cláudia Morais',
 0.08),
 (
 '00237',
@@ -108,3 +108,28 @@ VALUES(
 0.09);
 
 SELECT * FROM [TABELA DE VENDEDORES];
+
+
+/*-----------------------------------------------*/
+/*-------FORMA MAIS SIMPLES ESCRITA CÓDIGO-------*/
+/*-----------------------------------------------*/
+
+/*Insert apontando os campos*/
+INSERT INTO PRODUTOS ( CODIGO, SABOR, DESCRICAO, TAMANHO, EMBALAGEM, PRECO_LISTA)
+VALUES ('codigo', 'sabor', 'descricao', 'tamanho', 'embalagem', 'preco_lista');
+
+/*Insert sem a lista de campos*/
+/*Só pode ser usado quando a ordem dos valores respeita a ordem dos campos da lista*/
+INSERT INTO PRODUTOS
+VALUES ('codigo', 'sabor', 'descricao', 'tamanho', 'embalagem', 'preco_lista');
+
+/*Insert de várias linhas*/
+INSERT INTO PRODUTOS
+VALUES ('codigo', 'sabor', 'descricao', 'tamanho', 'embalagem', 'preco_lista'),
+('codigo', 'sabor', 'descricao', 'tamanho', 'embalagem', 'preco_lista'), 
+('codigo', 'sabor', 'descricao', 'tamanho', 'embalagem', 'preco_lista');
+
+
+
+
+
