@@ -7,3 +7,5 @@ UPDATE VENDEDORES SET COMISSAO = COMISSAO * 1.15; /*Aumenta em 15% a comissão*/
 ROLLBACK; 
 /*O rollback não confirma o que foi feito após o Start Transaction*/
 
+COMMIT; 
+/*O commit confirma a operação realizada na transação*/
