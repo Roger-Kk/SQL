@@ -13,17 +13,92 @@ DELIMITER;
 
 
 /*Exemplos: */
+DELIMITER //
 CREATE PROCEDURE  `ola_mundo`()
 BEGIN
-SELECT 'Olá Mundo!';
-END
+SELECT 'Olá Mundo!'//
+END //
+DELIMITER;
 
 /*Para chamar a Procedure: */
 CALL ola_mundo;
 
+DELIMITER //
+CREATE PROCEDURE  `mostra_num_alias`()
+BEGIN
+SELECT (1 + 9) - 5 AS RESULTADO //
+END //
+DELIMITER;
+
+CALL  mostra_num_alias;
+
+
+DELIMITER //
+CREATE PROCEDURE  `sp_com_funcoes`()
+BEGIN
+SELECT CONCAT('Olá Mundo!', '...', (1+9)-5) AS ITENS_COMBINADOS//
+END //
+DELIMITER;
+
+CALL  sp_com_funcoes;
+
+
+/*Para alterar uma Stored Procedure é necessária apagá-la e criá-la novamente*/
+DROP PROCEDURE
+CREATE PROCEDURE
+
+
+/*Como declarar uma variável em Procedures*/
+/*Tipos: */
+VARCHAR(n)
+INTEGER
+DECIMAL(p, s) p dígitos e s pontos decimais
+DATE
+TIMESTAMP data e hora
+
+
+/*Exemplo de declaração de variáveis: */
+DELIMITER //
+CREATE PROCEDURE  `exibe_variavel`()
+BEGIN
+DECLARE texto char(12) default 'Olá Mundo!' //
+SELECT texto//
+END //
+DELIMITER;
+
+CALL exibe_variavel;
+
+
+DELIMITER //
+CREATE PROCEDURE  `tipos_dados`()
+BEGIN
+DECLARE v varchar(5) default 'Texto' //
+DECLARE i integer default 10 //
+DECLARE d decimal(4,2) default 56.12 //
+DECLARE dt date default '2023-03-01' //
+SELECT v //
+SELECT i //
+SELECT d //
+SELECT dt //
+END //
+DELIMITER;
+
+CALL tipos_dados; 
 
 
 
+DELIMITER //
+CREATE PROCEDURE  `atribui_valor`()
+BEGIN
+DECLARE texto varchar(30) default 'Texto Inicial' //
+SELECT texto //
+SELECT texto = 'Texto Modificado' //
+SELECT texto //
+
+END //
+DELIMITER;
+
+CALL atribui_valor; 
 
 
 
