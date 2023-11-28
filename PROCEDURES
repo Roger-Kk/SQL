@@ -92,7 +92,7 @@ CREATE PROCEDURE  `atribui_valor`()
 BEGIN
 DECLARE texto varchar(30) default 'Texto Inicial' //
 SELECT texto //
-SELECT texto = 'Texto Modificado' //
+SET texto = 'Texto Modificado' //
 SELECT texto //
 
 END //
@@ -119,3 +119,20 @@ DELIMITER;
 
 CALL inclui_produto ('4000001', 'Sabor do Pantanal', 'Melancia', '1L', 'Pet', 4.79);
 SELECT * FROM tabela_de_produtos WHERE CODIGO_DO_PRODUTO = '4000001';
+
+
+/*Stored Procedure que retorna o sabor de um produto*/
+SELECT SABOR FROM tabela_de_produtos WHERE CODIGO_DO_PRODUTO = '4000001';
+
+DELIMITER //
+CREATE PROCEDURE `acha_sabor` (vProduto varchar(50))
+BEGIN
+DECLARE vSabor varchar(50)//
+SELECT SABOR INTO vSabor FROM tabela_de_produtos WHERE CODIGO_DO_PRODUTO = vProduto;
+SELECT vSabor //
+END //
+DELIMITER
+
+CALL acha_sabor('4000001');
+
+
