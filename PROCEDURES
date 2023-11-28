@@ -1,0 +1,33 @@
+/*PROCEDURES*/
+
+/*Conceito: */
+DELIMITER //
+CREATE PROCEDURES `nome_procedure`()
+BEGIN
+DECLARE declaration_statement
+...
+executable_statement
+...
+END //
+DELIMITER;
+
+
+/*Exemplos: */
+CREATE PROCEDURE  `ola_mundo`()
+BEGIN
+SELECT 'Olá Mundo!';
+END
+
+/*Para chamar a Procedure: */
+CALL ola_mundo;
+
+
+
+
+
+
+
+
+
+
+
