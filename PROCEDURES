@@ -101,8 +101,21 @@ DELIMITER;
 CALL atribui_valor; 
 
 
+/*Procedures com parâmetros*/
+DELIMITER //
+CREATE PROCEDURE `inclui_produto` (
+vCodigo varchar (50),
+vNome varchar (50), 
+vSabor varchar(50), 
+vTamanho varchar (50), 
+vEmbalagem varchar(50), 
+vPreco decimal(10,2))
+BEGIN
+INSERT INTO tabela_de_produtos
+(CODIGO_DO_PRODUTO, NOME_DO_PRODUTO, SABOR, TAMANHO, EMBALAGEM, PRECO_DE_LISTA)
+VALUES ( vCodigo, vNome, vSabor, vTamanho, vEmbalagem, vPreco) //
+END //
+DELIMITER; 
 
-
-
-
-
+CALL inclui_produto ('4000001', 'Sabor do Pantanal', 'Melancia', '1L', 'Pet', 4.79);
+SELECT * FROM tabela_de_produtos WHERE CODIGO_DO_PRODUTO = '4000001';
