@@ -136,3 +136,48 @@ DELIMITER
 CALL acha_sabor('4000001');
 
 
+/*    CURSOR    */
+-- Trata-se de uma estrutura de array no SQL que recebe o resultado de uma consulta
+
+DECLARE @NOME varchar(10);         --Declara uma variável
+DECLARE CURSOR_NOME CURSOR FOR     --Declara um cursor para um select
+  SELECT NOME FROM TABELA;         --Faz um select que retorna mais de uma linha
+OPEN CURSOR_NOME;                  --Abre o cursos
+FETCH CURSOR_NOME INTO @NOME;      --Pega o elemento da posição do cursor e joga numa variável, faz 1x pra cada variável
+
+/*Exemplo: */
+CREATE PROCEDURE 'cursor_primeiro_contato'()
+BEGIN
+  DECLARE vNome varchar(50);
+  DECLARE c CURSOR FOR 
+    SELECT NOME FROM TABELA_DE_CLIENTES LIMIT 4;
+  OPEN c;
+  FETCH c INTO vNome;
+  SELECT vNome;
+  FETCH c INTO vNome;
+  SELECT vNome;
+  FETCH c INTO vNome;
+  SELECT vNome;
+  FETCH c INTO vNome;
+  SELECT vNome;
+END
+CALL cursor_primeiro_contato;
+
+/*Iterando sobre um cursor sem ter que repetir o Fetch*/
+CREATE PROCEDURE 'cursor_looping'()
+BEGIN
+  DECLARE fim_cursor INT DEFAULT 0;
+  DECLARE vNome VARCHAR(50);
+  DECLARE c CURSOR FOR 
+    SELECT NOME FROM TABELA DE CLIENTES LIMIT 4; 
+  DECLARE CONTINUE HANDLER FOR NOT FOUND SET fim_do_cursor = 1; --aqui trata um erro, quando der erro a variavel fim_cursor será 1
+  OPEN c;
+  WHILE fim_cursor = 0
+  DO
+    FETCH c INTO vNome;
+    SELECT vNome;
+  END WHILE
+  CLOSE c;
+END
+
+
