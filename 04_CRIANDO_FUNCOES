@@ -23,7 +23,9 @@ BEGIN
 RETURN vRetorno; 
 END
 
+SELECT f_acha_tipo_sabor("Laranja"); --Executa a função
 
+SELECT NOME_PRODUTO, SABOR, f_acha_tipo_sabor(SABOR) AS TIPO_SABOR FROM TABELA_PRODUTOS;
 
 
 
