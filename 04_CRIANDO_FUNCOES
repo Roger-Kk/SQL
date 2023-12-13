@@ -1,1 +1,38 @@
+/*Para criar funções é necessário esse código no SQL: */
+
+SET GLOBAL log_bin_trust_function_creators=1;
+
+ /*Declaração exemplo: */
+CREATE FUNCTION `nome_funcao`()
+RETURNS INTEGER
+BEGIN
+
+RETURN 1;
+END
+
+/*Exemplo: */
+CREATE FUNCTION `f_acha_tipo_sabor`(vSabor VARCHAR(50))
+RETURNS VARCHAR (20)
+BEGIN
+  DECLARE vRetorno VARCHAR(20) DEFAULT "";
+  CASE vSabor
+  WHEN 'Limão' THEN SET vRetorno = 'Cítrico';
+  WHEN 'Uva' THEN SET vRetorno = 'Neutro';
+  ELSE SET vRetorno = 'Ácido';
+  END CASE
+RETURN vRetorno; 
+END
+
+
+
+
+
+
+
+
+
+
+
+
+
 
