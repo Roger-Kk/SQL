@@ -1,0 +1,22 @@
+
+/*BACKUP DATABASE COMPLETA*/
+Executa os comandos no Prompt de Comando:
+
+Seleciona o diretório de instalação do MySQL, em geral vai estar em C:\Program Files\MySQL\...
+Digita: mysqldump
+Disponibiliza o arquivo e solicita o preenchimento de parâmetros
+Digita: mysqldump -uroot -p --databases nome_database > c:\local_arquivo_backup\nome_arquivo_backup.sql
+Vai ser gerado no diretório de destino um arquivo '.sql' com comandos SQL para criação do banco de dados e suas tabelas. 
+Esse arquivo pode ser rodado no MySQL. 
+
+/*BACKUP DE APENAS UMA TABELA*/
+mysqldump -uroot -p --databases nome_database --tables nome_tabela > c:\local_arquivo_backup\nome_arquivo_backup.sql
+
+/*BACKUP DE TUDO MENOS UMA TABELA*/
+mysqldump -uroot -p --databases nome_database --ignore-tables nome_database.nome_tabela > c:\local_arquivo_backup\nome_arquivo_backup.sql
+
+
+
+
+
+
